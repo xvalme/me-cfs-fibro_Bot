@@ -42,8 +42,10 @@ print("Beep. Boop. Bot is booting...")
 print("B0T by u/michaelangelito. Visit https//xval.me!")
 print("--------------------")
 time.sleep(1)
-
 while True:
+    main()
+
+def main():
     for subred in subreds:
         subreddit = r.subreddit(subred)
         print("Getting posts in " + subred)
