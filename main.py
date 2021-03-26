@@ -1,10 +1,6 @@
 import praw
 import time
-import os
 from configparser import ConfigParser
-from praw.reddit import Submission
-import re
-from datetime import datetime
 
 r = praw.Reddit('bot1')
 
