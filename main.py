@@ -42,8 +42,6 @@ print("Beep. Boop. Bot is booting...")
 print("B0T by u/michaelangelito. Visit https//xval.me!")
 print("--------------------")
 time.sleep(1)
-while True:
-    main()
 
 def main():
     for subred in subreds:
@@ -90,3 +88,6 @@ def checker(text):
                 return 2
     else:
         return 0
+    
+while True:
+    main()
