@@ -37,22 +37,26 @@ comment_body = ("""Oh! Seems you are talking about *this disease*. Here it the e
 \n *Beep boop. I am a bot created by u/michaelangelito.*
 """)
 
-def main():
+#Start running
+print("Beep. Boop. Bot is booting...")
+print("B0T by u/michaelangelito. Visit https//xval.me!")
+print("--------------------")
+time.sleep(1)
 
-        for subred in subreds:
-            subreddit = r.subreddit(subred)
-            print("Getting posts in " + subred)
+while True:
+    for subred in subreds:
+        subreddit = r.subreddit(subred)
+        print("Getting posts in " + subred)
 
-            for submission in subreddit.new(limit=1000):      #Gets the last submissions
-                if checker(submission.title) == 2 or checker(submission.selftext) == 2:     #Detecting if already was saved
-                    if verify(submission) == 0:
-                        print("Found a post with one of keywords.")
-                        submission.reply(comment_body)
+        for submission in subreddit.new(limit=1000):      #Gets the last submissions
+            if checker(submission.title) == 2 or checker(submission.selftext) == 2:     #Detecting if already was saved
+                if verify(submission) == 0:
+                    print("Found a post with one of keywords.")
+                    submission.reply(comment_body)
 
-        print("Sleeping for 60seconds...")
-        time.sleep(60)
-        main()
-
+    print("Sleeping for 60seconds...")
+    time.sleep(60)
+       
 def commenter(submission):
     submission.reply(comment_body)
 
@@ -84,11 +88,3 @@ def checker(text):
                 return 2
     else:
         return 0
-
-
-#Start running
-print("Beep. Boop. Bot is booting...")
-print("B0T by u/michaelangelito. Visit https//xval.me!")
-print("--------------------")
-time.sleep(1)
-main()
