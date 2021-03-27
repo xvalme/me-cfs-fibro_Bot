@@ -56,7 +56,7 @@ If I am being boring please contact my creator.)*
 """) 
 
 def main():
-
+    try:
         for subred in subreds:
             subreddit = r.subreddit(subred)
             print("Getting posts in " + subred)
@@ -64,11 +64,17 @@ def main():
             for submission in subreddit.new(limit=1000):      #Gets the last submissions
                 if checker(submission.title) == 2 or checker(submission.selftext) == 2:     #Detecting if already was saved
                     if verify(submission) == 0:
-                        print("Found a post with one of keywords.")
-                        submission.reply(comment_body)
+                        try:
+                            print("Found a post with one of keywords.")
+                            submission.reply(comment_body)
+                        except:
+                            time.sleep(120)
 
         print("Sleeping for 60seconds...")
         time.sleep(60)
+        main()
+   except:
+        time.sleep(10)
         main()
 
 def commenter(submission):
