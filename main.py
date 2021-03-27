@@ -24,7 +24,8 @@ while True:
         print("Trying again in 10 seconds.")
         time.sleep(10)
 
-comment_body = ("""Oh! Seems you are talking about *this disease*. Here it the etimology for you:\n
+comment_body = ("""Oh! Seems you are talking about the *Chronic Fatigue Syndrome*. Let me explain it to those who 
+don´t know it:\n
 **Myalgic Encephalomyelitis** (ME) = muscle pain with inflammation of the brain and spinal cord \n
 **myalgic-**|**pain in one or more muscles**
 -|-
@@ -34,29 +35,42 @@ comment_body = ("""Oh! Seems you are talking about *this disease*. Here it the e
 **fibro-**|**fibrous tissue**
 -|-
 **myalgia**|pain in one or more muscles
-\n *Beep boop. I am a bot created by u/michaelangelito.*
-""")
+\n 
+ME is also known as Chronic Fatigue Syndrome (CFS/ME):
+\n
+>People with ME/CFS are often not able to do their usual activities. At times, ME/CFS may confine them to bed. 
+People with ME/CFS have overwhelming fatigue that is not improved by rest. ME/CFS may get worse after any activity, whether it’s physical or mental. 
+This symptom is known as post-exertional malaise (PEM). Other symptoms can include problems with sleep, thinking and concentrating, pain, 
+and dizziness. People with ME/CFS may not look ill.
+\n
+FM has been called the invisible disease with so many different names.
+\n
+>Fibromyalgia (fi·bro·my·al·gi·a) is a condition that causes pain all over the body (also referred to as widespread pain), sleep problems, fatigue, 
+and often emotional and mental distress. People with fibromyalgia may be more sensitive to pain than people without fibromyalgia. This is called 
+abnormal pain perception processing. Fibromyalgia affects about 4 million US adults, about 2% of the adult population. 
+The cause of fibromyalgia is not known, but it can be effectively treated and managed.
 
-#Start running
-print("Beep. Boop. Bot is booting...")
-print("B0T by u/michaelangelito. Visit https//xval.me!")
-print("--------------------")
-time.sleep(1)
+\n
+Source: https://cdc.gov  \n*^(Beep boop. I am a bot created by u /michaelangelito (check https://xval.me for more stuff). 
+If I am being boring please contact my creator.)*
+""") 
 
 def main():
-    for subred in subreds:
-        subreddit = r.subreddit(subred)
-        print("Getting posts in " + subred)
 
-        for submission in subreddit.new(limit=1000):      #Gets the last submissions
-            if checker(submission.title) == 2 or checker(submission.selftext) == 2:     #Detecting if already was saved
-                if verify(submission) == 0:
-                    print("Found a post with one of keywords.")
-                    submission.reply(comment_body)
+        for subred in subreds:
+            subreddit = r.subreddit(subred)
+            print("Getting posts in " + subred)
 
-    print("Sleeping for 60seconds...")
-    time.sleep(60)
-       
+            for submission in subreddit.new(limit=1000):      #Gets the last submissions
+                if checker(submission.title) == 2 or checker(submission.selftext) == 2:     #Detecting if already was saved
+                    if verify(submission) == 0:
+                        print("Found a post with one of keywords.")
+                        submission.reply(comment_body)
+
+        print("Sleeping for 60seconds...")
+        time.sleep(60)
+        main()
+
 def commenter(submission):
     submission.reply(comment_body)
 
@@ -88,6 +102,11 @@ def checker(text):
                 return 2
     else:
         return 0
-    
-while True:
-    main()
+
+
+#Start running
+print("Beep. Boop. Bot is booting...")
+print("B0T by u/michaelangelito. Visit https//xval.me!")
+print("--------------------")
+time.sleep(1)
+main()
