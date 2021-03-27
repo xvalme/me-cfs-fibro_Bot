@@ -73,7 +73,7 @@ def main():
         print("Sleeping for 60seconds...")
         time.sleep(60)
         main()
-   except:
+    except:
         time.sleep(10)
         main()
 
