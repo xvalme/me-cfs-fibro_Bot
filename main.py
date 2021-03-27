@@ -28,12 +28,10 @@ comment_body = ("""Oh! Seems you are talking about the *Chronic Fatigue Syndrome
 don´t know about it:\n
 **Myalgic Encephalomyelitis** (ME) = muscle pain with inflammation of the brain and spinal cord \n
 **myalgic-**|**pain in one or more muscles**
--|-
 **encephalo-**|brain
 **myelitis**|inflammation of the spinal cord or of the bone marrow
 **Fibromyalgia** (FM) = chronic pain, especially in the muscles \n
 **fibro-**|**fibrous tissue**
--|-
 **myalgia**|pain in one or more muscles
 \n 
 ME is also known as Chronic Fatigue Syndrome (CFS/ME):
