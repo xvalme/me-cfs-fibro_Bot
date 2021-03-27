@@ -51,8 +51,8 @@ abnormal pain perception processing. Fibromyalgia affects about 4 million US adu
 The cause of fibromyalgia is not known, but it can be effectively treated and managed.
 
 \n
-Source: https://cdc.gov  \n*^(Beep boop. I am a bot created by u /michaelangelito ^((Check https://xval.me for more stuff)). 
-^(If I am being boring please contact my creator.)*
+Source: https://cdc.gov  \n*^(Beep boop. I am a bot created by u /michaelangelito ^(Check ^https://xval.me ^for ^more ^stuff). 
+^(If ^I ^am ^being ^boring ^please ^contact ^my ^creator.)*
 """) 
 
 def main():
@@ -73,7 +73,9 @@ def main():
         print("Sleeping for 60seconds...")
         time.sleep(60)
         main()
-    except:
+    except Exception as e:
+        print("Error")
+        print(e)
         time.sleep(10)
         main()
 
