@@ -53,6 +53,7 @@ def main():
                             submission.reply(comment_body)
                         except:
                             time.sleep(120)
+                            submission.reply(comment_body)
 
         print("Sleeping for 60seconds...")
         time.sleep(60)
