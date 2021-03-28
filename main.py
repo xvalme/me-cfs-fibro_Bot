@@ -71,7 +71,7 @@ def verify(submission):
     replies = submission.comments
 
     for x in replies:
-        if x.author == "sxtybot":
+        if x.author == "me-cfs-fibro_Bot":
             return 2
     else:
         return 0
