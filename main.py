@@ -24,8 +24,8 @@ while True:
         print("Trying again in 10 seconds.")
         time.sleep(10)
 
-comment_body = ("""Oh! Seems you are talking about the *Chronic Fatigue Syndrome*. Let me explain for those who 
-don´t know about it:\n
+comment_body = ("""Oh! Seems you are talking about the *Myalgic Encephalomyelitis ME/CFS*, which is muscle pain with inflammation of the brain and spinal cord.
+Let me explain the etimology for those who don´t know about it:\n
 **Myalgic Encephalomyelitis** (ME) = muscle pain with inflammation of the brain and spinal cord \n
 **myalgic-**|**pain in one or more muscles**
 **encephalo-**|brain
