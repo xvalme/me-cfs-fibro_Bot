@@ -43,7 +43,7 @@ def main():
 
             y = 0
 
-            for submission in subreddit.new(limit=10):      #Gets the last submissions
+            for submission in subreddit.new(limit=100):      #Gets the last submissions
                 y = y + 1
                 print(y) 
                 if checker(submission.title) == 2 or checker_comments(submission) == 2:     #Detecting if already was saved
