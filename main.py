@@ -43,18 +43,31 @@ def main():
 
             y = 0
 
-            for submission in subreddit.new(limit=100):      #Gets the last submissions
+            for submission in subreddit.new(limit=1000):      #Gets the last submissions
                 y = y + 1
-                print(y) 
-                if checker(submission.title) == 2 or checker_comments(submission) == 2:     #Detecting if already was saved
-                    if verify(submission) == 0:
+                print(y)
+                if checker(submission.title) == 2:     
+                    if verify(submission) == 0:     #Detecting if already was saved
+
                         try:
-                            print("Found a post with one of keywords.")
+                            print("Found a post with one of the keywords.")
                             submission.reply(comment_body)
-                        except Exception as e:
-                            print(e)
+                        except:
                             time.sleep(120)
                             submission.reply(comment_body)
+
+                if checker_comments(submission) != 0:
+                    if verify(submission) == 0:
+                        print("Found a comment with one of the keywords.  - " + submission.title)
+                        id = checker_comments(submission)
+
+                        comment = r.comment(id=id)
+
+                    try:
+                        comment.reply(comment_body)
+                    except:
+                        time.sleep(120)
+                        comment.reply(comment_body)
 
         print("Sleeping for 60seconds...")
         time.sleep(60)
@@ -65,18 +78,17 @@ def main():
         time.sleep(10)
         main()
 
-def commenter(submission):
-    submission.reply(comment_body)
-
 def verify(submission):
 
-    replies = submission.comments
+    submission.comments.replace_more(limit=None)
 
-    for x in replies:
-        if x.author == "me-cfs-fibro_Bot":
+    for comment in submission.comments.list():
+
+        if comment.author == "me-cfs-fibro_Bot":
             return 2
-    else:
-        return 0
+
+
+    return 0
 
 def checker(text):
     text = list(text.split())
@@ -98,8 +110,11 @@ def checker(text):
         return 0
 
 def checker_comments(submission):
-    for comment in submission.comments:
+    submission.comments.replace_more(limit=None)
+    for comment in submission.comments.list():
+
         comment_text = comment.body
+        id = comment.id
         text = list(comment_text.split())
 
         for p in text:
@@ -114,9 +129,9 @@ def checker_comments(submission):
         for keyword in keywords:
             for word in text:
                 if word == keyword:
-                    return 2
-        else:
-            return 0
+                    return (id)
+    
+    return 0
 
 
 
