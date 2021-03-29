@@ -43,7 +43,7 @@ def main():
 
             y = 0
 
-            for submission in subreddit.new(limit=1000):      #Gets the last submissions
+            for submission in subreddit.new(limit=10):      #Gets the last submissions
                 y = y + 1
                 print(y)
                 if checker(submission.title) == 2:     
@@ -84,7 +84,7 @@ def verify(submission):
 
     for comment in submission.comments.list():
 
-        if comment.author == "me-cfs-fibro_Bot":
+        if comment.author == "me-cfs-fibro_Bot" or if comment.author == "NotMECFSplease":
             return 2
 
 
