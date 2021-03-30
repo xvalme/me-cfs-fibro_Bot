@@ -84,7 +84,7 @@ def verify(submission):
 
     for comment in submission.comments.list():
 
-        if comment.author == "me-cfs-fibro_Bot" or if comment.author == "NotMECFSplease":
+        if comment.author == "me-cfs-fibro_Bot" or comment.author == "NotMECFSplease":
             return 2
 
 
