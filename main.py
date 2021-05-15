@@ -47,7 +47,7 @@ def main():
                 y = y + 1
                 print(y)
                 if checker(submission.title) == 2:     
-                    if verify(submission) == 0:     #Detecting if already was saved
+                    if verify(submission) == 0 and submission.author != "NotMECFSplease":     #Detecting if already was saved
 
                         try:
                             print("Found a post with one of the keywords.")
